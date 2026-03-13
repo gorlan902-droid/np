@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home
+from core.views import home_view  # Імпортуємо ваш view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home)
+    path('', home_view, name='home'), # Порожні лапки '' означають головну сторінку
 ]
