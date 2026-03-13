@@ -1,0 +1,6 @@
+@echo off
+echo Active VENV...
+call venv\Scripts\activate.ps1
+echo Starting Django Server...
+python manage.py runserver
+pause
