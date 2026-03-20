@@ -1,8 +1,7 @@
-/* Підключаємо гарний шрифт з Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap');
 
 body {
-	background-color: #F0F2F5; /* Світлий сіро-лавандовий фон */
+	background-color: #F0F2F5; 
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	display: flex;
@@ -11,7 +10,7 @@ body {
 	min-height: 100vh;
 }
 
-/* Біла картка-контейнер */
+
 .container {
 	background-color: #ffffff;
 	width: 90%;
@@ -23,34 +22,30 @@ body {
 	overflow: hidden;
 }
 
-/* 1. ВИПРАВЛЯЄМО СПИСОК (Розштовхуємо елементи) */
+
 nav ul {
 	list-style: none;
-	display: flex; /* Вмикаємо гнучкий рядок */
-	align-items: center; /* Центруємо кнопки по вертикалі */
-	justify-content: flex-end; /* ВСІ кнопки меню штовхаємо вправо */
+	display: flex; 
+	align-items: center; 
+	justify-content: flex-end; 
 
-	padding: 0 0 20px 0; /* Відступ до лінії */
+	padding: 0 0 20px 0; 
 	margin: 0 0 50px 0;
-	border-bottom: 2px solid #DB99A0; /* Твоя рожева лінія */
+	border-bottom: 2px solid #DB99A0; 
 }
 
-/* 2. ВИПРАВЛЯЄМО ЛОГОТИП (Рожевий і зліва) */
 .logo {
 	font-family: 'Playfair Display', serif;
 	font-size: 28px;
 	font-weight: bold;
-	/* РОЖЕВИЙ КОЛІР */
 	color: #DB99A0 !important;
-	/* МАГІЯ: Це відштовхне логотип вліво, а все інше залишиться справа */
 	margin-right: auto;
-	/* Якщо логотип у тебе в тегу <a>, прибираємо підкреслення */
 	text-decoration: none;
 }
 
-/* 3. ВІДСТУПИ ДЛЯ КНОПОК МЕНЮ (Щоб не злипалися) */
+
 nav li {
-	margin-left: 30px; /* Робить простір між Examples, About і Get Started */
+	margin-left: 30px;
 }
 
 nav a {
@@ -64,63 +59,53 @@ nav a {
 		color: #5D70A6;
 	}
 
-/* Кнопка "Get Started" у меню */
+
 .btn-nav {
-	background-color: #DB99A0; /* Ніжно-рожевий */
+	background-color: #DB99A0; 
 	color: white !important;
 	padding: 10px 25px;
 	border-radius: 50px;
 }
-/* =========================================
-   ГОЛОВНИЙ БЛОК (ВИПРАВЛЕННЯ: КАРТИНКА ТА ТЕКСТ)
-   ========================================= */
+
 .hero {
-	display: flex; /* Вмикаємо режим "рядочка" */
-	align-items: center; /* Центруємо текст і фото по вертикалі */
-	justify-content: space-between; /* Розподіляє їх по краях */
-	gap: 40px; /* Фіксована відстань між текстом і фото */
-	padding: 30px 0; /* Відступи зверху/знизу */
-	width: 100%; /* Не ширше, ніж батьківський контейнер */
-	box-sizing: border-radius; /* Враховує відступи в ширині */
+	display: flex; 
+	align-items: center; 
+	justify-content: space-between; 
+	gap: 40px; 
+	padding: 30px 0; 
+	width: 100%; 
+	box-sizing: border-radius; /
 }
 
-/* =========================================
-   ТЕКСТОВА КОЛОНКА - ЦЕНТРУЄМО ВСЕ
-   ========================================= */
 .hero-text {
-	flex: 1; /* Займає 50% ширини */
-	max-width: 520px; /* Обмеження ширини (як ми вчили) */
-	/* ВМИКАЄМО ЦЕНТРУВАННЯ ФЛЕКСОМ */
+	flex: 1; 
+	max-width: 520px; 
 	display: flex;
-	flex-direction: column; /* Елементи стають один під одним */
-	justify-content: center; /* Центрування по вертикалі (якщо треба) */
-	align-items: center; /* ЦЕНТРУВАННЯ ВСЬОГО ПО ГОРИЗОНТАЛІ */
-	/* ДОДАТКОВО: ЦЕНТРУВАННЯ САМОГО ТЕКСТУ */
+	flex-direction: column; 
+	justify-content: center; 
+	align-items: center; 
 	text-align: center;
-	margin: 0 auto; /* Додаткове центрування блока на екрані */
+	margin: 0 auto; 
 }
 
-/* =========================================
-   КАРТИНКА - ЗАБИРАЄМО ТІНЬ
-   ========================================= */
+
 .hero-image {
-	flex: 1; /* Займає 50% ширини */
-	display: flex; /* Вмикаємо флекс, щоб картинка була слухняною */
-	justify-content: flex-end; /* Штовхаємо картинку в правий край блока */
-	padding-right: 20px; /* Трохи відступу від правого краю */
+	flex: 1; 
+	display: flex; 
+	justify-content: flex-end; 
+	padding-right: 20px;
 }
 
 	.hero-image img {
-		width: 100%; /* Розтягується на всю ширину блока .hero-image */
-		max-width: 480px; /* Обмеження ширини (як ми вчили) */
-		height: auto; /* Пропорції */
-		border-radius: 20px; /* Залишмо легке закруглення, як на фото */
-		display: block; /* Прибирає відступи знизу */
-		/* ЗАБИРАЄМО ТІНЬ (box-shadow) */
+		width: 100%; 
+		max-width: 480px; 
+		height: auto;
+		border-radius: 20px;
+		display: block;
 		box-shadow: none !important;
 	}
 
-/* Головна кнопка з рамкою */
+
 .btn-main {
 	display: inline-block;
 	padding: 18px 40px;
