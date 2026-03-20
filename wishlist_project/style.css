@@ -1,110 +1,140 @@
+/* Підключаємо гарний шрифт з Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap');
 
 body {
-	background-color: #FAF2F2; 
-	font-family: 'Times New Roman', Times, serif; 
-	color: #333333;
+	background-color: #F0F2F5; /* Світлий сіро-лавандовий фон */
+	font-family: 'Montserrat', sans-serif;
 	margin: 0;
-	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
 }
 
-
+/* Біла картка-контейнер */
 .container {
 	background-color: #ffffff;
+	width: 90%;
 	max-width: 1100px;
-	margin: 50px auto; 
-	padding: 50px;
-	border-radius: 5px; 
-	box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
+	padding: 60px;
+	border-radius: 20px;
+	box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+	position: relative;
+	overflow: hidden;
 }
 
-
+/* 1. ВИПРАВЛЯЄМО СПИСОК (Розштовхуємо елементи) */
 nav ul {
 	list-style: none;
-	display: flex;
-	justify-content: flex-end; 
-	align-items: center;
-	margin: 0 0 50px 0; 
-	padding: 0;
+	display: flex; /* Вмикаємо гнучкий рядок */
+	align-items: center; /* Центруємо кнопки по вертикалі */
+	justify-content: flex-end; /* ВСІ кнопки меню штовхаємо вправо */
+
+	padding: 0 0 20px 0; /* Відступ до лінії */
+	margin: 0 0 50px 0;
+	border-bottom: 2px solid #DB99A0; /* Твоя рожева лінія */
 }
 
+/* 2. ВИПРАВЛЯЄМО ЛОГОТИП (Рожевий і зліва) */
 .logo {
+	font-family: 'Playfair Display', serif;
+	font-size: 28px;
 	font-weight: bold;
-	font-size: 24px;
-	color: #333;
+	/* РОЖЕВИЙ КОЛІР */
+	color: #DB99A0 !important;
+	/* МАГІЯ: Це відштовхне логотип вліво, а все інше залишиться справа */
 	margin-right: auto;
+	/* Якщо логотип у тебе в тегу <a>, прибираємо підкреслення */
+	text-decoration: none;
 }
 
+/* 3. ВІДСТУПИ ДЛЯ КНОПОК МЕНЮ (Щоб не злипалися) */
 nav li {
-	margin-left: 30px; 
+	margin-left: 30px; /* Робить простір між Examples, About і Get Started */
 }
 
 nav a {
 	text-decoration: none;
-	color: #4A4A4A;
-	font-weight: normal;
-	font-size: 16px;
-	text-transform: capitalize;
-}
-nav li:last-child a {
-	background-color: #DB99A0; 
-	color: white !important;
-	padding: 8px 18px;
-	border-radius: 4px;
-}
-
-
-
-.main-content {
-	display: flex;
-	align-items: center; 
-	gap: 40px; 
-}
-
-
-.main-text {
-	flex: 1; 
-	text-align: left; 
-}
-
-.main-image {
-	flex: 1; 
-}
-
-
-h1 {
-	font-size: 46px; 
-	color: #111;
-	margin-bottom: 20px;
-}
-
-.quote {
-	font-size: 18px;
 	color: #666;
-	margin-bottom: 40px;
-	line-height: 1.6;
-}
-
-.btn-main {
-	display: inline-block;
-	padding: 15px 35px;
-	font-size: 16px;
-	font-weight: bold;
-	color: #333333; 
-	text-decoration: none;
-	
-	background-color: transparent; 
-	border: 2px solid #999999; 
-	border-radius: 4px;
+	font-weight: 400;
 	transition: 0.3s;
 }
 
-	.btn-main:hover {
-		background-color: #999999; 
-		color: #ffffff; 
+	nav a:hover {
+		color: #5D70A6;
+	}
 
-.main-image img {
-	width: 100%;
-	max-width: 500px;
-	border-radius: 5px;
-	box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+/* Кнопка "Get Started" у меню */
+.btn-nav {
+	background-color: #DB99A0; /* Ніжно-рожевий */
+	color: white !important;
+	padding: 10px 25px;
+	border-radius: 50px;
 }
+/* =========================================
+   ГОЛОВНИЙ БЛОК (ВИПРАВЛЕННЯ: КАРТИНКА ТА ТЕКСТ)
+   ========================================= */
+.hero {
+	display: flex; /* Вмикаємо режим "рядочка" */
+	align-items: center; /* Центруємо текст і фото по вертикалі */
+	justify-content: space-between; /* Розподіляє їх по краях */
+	gap: 40px; /* Фіксована відстань між текстом і фото */
+	padding: 30px 0; /* Відступи зверху/знизу */
+	width: 100%; /* Не ширше, ніж батьківський контейнер */
+	box-sizing: border-radius; /* Враховує відступи в ширині */
+}
+
+/* =========================================
+   ТЕКСТОВА КОЛОНКА - ЦЕНТРУЄМО ВСЕ
+   ========================================= */
+.hero-text {
+	flex: 1; /* Займає 50% ширини */
+	max-width: 520px; /* Обмеження ширини (як ми вчили) */
+	/* ВМИКАЄМО ЦЕНТРУВАННЯ ФЛЕКСОМ */
+	display: flex;
+	flex-direction: column; /* Елементи стають один під одним */
+	justify-content: center; /* Центрування по вертикалі (якщо треба) */
+	align-items: center; /* ЦЕНТРУВАННЯ ВСЬОГО ПО ГОРИЗОНТАЛІ */
+	/* ДОДАТКОВО: ЦЕНТРУВАННЯ САМОГО ТЕКСТУ */
+	text-align: center;
+	margin: 0 auto; /* Додаткове центрування блока на екрані */
+}
+
+/* =========================================
+   КАРТИНКА - ЗАБИРАЄМО ТІНЬ
+   ========================================= */
+.hero-image {
+	flex: 1; /* Займає 50% ширини */
+	display: flex; /* Вмикаємо флекс, щоб картинка була слухняною */
+	justify-content: flex-end; /* Штовхаємо картинку в правий край блока */
+	padding-right: 20px; /* Трохи відступу від правого краю */
+}
+
+	.hero-image img {
+		width: 100%; /* Розтягується на всю ширину блока .hero-image */
+		max-width: 480px; /* Обмеження ширини (як ми вчили) */
+		height: auto; /* Пропорції */
+		border-radius: 20px; /* Залишмо легке закруглення, як на фото */
+		display: block; /* Прибирає відступи знизу */
+		/* ЗАБИРАЄМО ТІНЬ (box-shadow) */
+		box-shadow: none !important;
+	}
+
+/* Головна кнопка з рамкою */
+.btn-main {
+	display: inline-block;
+	padding: 18px 40px;
+	border: 2px solid #DB99A0;
+	color: #DB99A0;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 50px;
+	transition: 0.4s;
+}
+
+	.btn-main:hover {
+		background-color: #DB99A0;
+		color: white;
+		box-shadow: 0 10px 20px rgba(219, 153, 160, 0.3);
+	}
+
