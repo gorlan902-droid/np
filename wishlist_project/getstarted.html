@@ -1,27 +1,46 @@
-<div class="container">
-    <nav>
-        <ul>
-            <li class="logo"><a href="index.html" style="text-decoration:none; color:#5D70A6;">WishList</a></li>
-            <li><a href="examples.html">examples</a></li>
-            <li><a href="about.html">about</a></li>
-        </ul>
-    </nav>
+п»ї<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WishList | РџСЂРёС”РґРЅР°С‚РёСЃСЏ</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">WishList</a>
+                </li>
+                
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="getstarted.html" class="btn-nav">Get Started</a></li>
+            </ul>
+        </nav>
 
-    <header>
-        <h2>Приєднуйтесь до нас</h2>
-        <form>
-            <label>Ваше ім'я</label>
-            <input type="text" placeholder="Анна">
-            <label>Email</label>
-            <input type="email" placeholder="email@example.com">
-            <label>Пароль</label>
-            <input type="password">
-            <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer;">Зареєструватися</button>
-        </form>
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-        <h2>Створити новий вішліст</h2>
-        <input type="text" placeholder="Назва (напр. Мій День Народження)" style="max-width:400px;">
-        <br>
-        <button class="btn-main">Додати бажання +</button>
-    </header>
-</div>
+        <header class="hero-text" style="max-width: 600px; margin: 0 auto;">
+            <h1>РџСЂРёС”РґРЅСѓР№С‚РµСЃСЊ РґРѕ РЅР°СЃ</h1>
+            <form style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
+                <label>Р’Р°С€Рµ С–Рј'СЏ</label>
+                <input type="text" placeholder="Name" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+
+                <label>Email</label>
+                <input type="email" placeholder="email@example.com" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+
+                <label>РџР°СЂРѕР»СЊ</label>
+                <input type="password"placeholder="Password" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+
+                <button type="submit" class="btn-main" style="width: 100%; cursor: pointer; border: 2px solid #DB99A0;">Р—Р°СЂРµС”СЃС‚СЂСѓРІР°С‚РёСЃСЏ</button>
+            </form>
+
+            <hr style="margin: 50px 0; border: 0; border-top: 2px solid #F0F2F5;">
+
+            <h1>РЎС‚РІРѕСЂРёС‚Рё РЅРѕРІРёР№ РІС–С€Р»С–СЃС‚</h1>
+            <input type="text" placeholder="РќР°Р·РІР° (РЅР°РїСЂ. РњС–Р№ Р”РµРЅСЊ РќР°СЂРѕРґР¶РµРЅРЅСЏ)" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%; margin-bottom: 20px;">
+            <button class="btn-main" style="border: 2px solid #DB99A0;">Р”РѕРґР°С‚Рё Р±Р°Р¶Р°РЅРЅСЏ +</button>
+        </header>
+    </div>
+</body>
+</html>
