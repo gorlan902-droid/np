@@ -1,0 +1,47 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="navbar">
+            <div class="logo">
+                <a href="/">WishList</a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/examples/">Examples</a>
+                <a href="/about/">About</a>
+                <a href="/register/" class="btn-nav">Get Started</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Мистецтво дарувати саме те, що потрібно</h1>
+                <p>
+                    Ваш персональний вішліст, який перетворює очікування на реальність.
+                    Створюйте списки, діліться з близькими та отримуйте саме те, про що мрієте.
+                </p>
+
+                <a href="/register/" class="hero-btn">
+                    Створити свій перший вішліст
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img src="{% static 'images/main_picture.png' %}" alt="test">
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

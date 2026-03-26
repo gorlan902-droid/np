@@ -1,34 +1,43 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>WishList | Про нас</title>
+    <title>About - WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div class="container">
-        <nav>
-            <ul>
-                <li class="logo">
-                    <a href="index.html" style="text-decoration: none; color: inherit;">WishList</a>
-                </li>
-
-                <li><a href="examples.html">Examples</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="getstarted.html" class="btn-nav">Get Started</a></li>
-            </ul>
-        </nav>
-
-        <header class="hero-text">
-            <h1>Про наш проєкт</h1>
-            <p style="max-width: 700px; margin: 0 auto 40px; color: #636E72; line-height: 1.8;">
-                Ми створили цей сервіс, щоб допомогти людям дарувати радість.
-                Наш вішліст — це простір, де твої мрії стають зрозумілими для близьких.
-                Більше ніяких незручних запитань "Що тобі подарувати?" або непотрібних речей на полицях.
-            </p>
-            <img src="main_picture.png" alt="Про нас" style="max-width: 450px; border-radius: 20px; opacity: 0.9; width: 100%; height: auto;">
+        <header class="navbar">
+            <div class="logo">
+                <a href="/">WishList</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/examples/">Examples</a>
+                <a href="/about/">About</a>
+                <a href="/register/" class="btn-nav">Get Started</a>
+            </nav>
         </header>
+
+        <section class="page-section">
+            <div class="page-text">
+                <h1>Про нас</h1>
+                <p>
+                    WishList — це простий і зручний сервіс для створення списків бажань.
+                    Ми хочемо допомогти людям ділитися своїми мріями, а друзям і близьким —
+                    легко знаходити подарунки, які справді потрібні.
+                </p>
+                <p>
+                    На нашому сайті ви можете створити власний список бажань, поділитися ним
+                    з іншими та зробити вибір подарунків набагато простішим.
+                </p>
+            </div>
+
+            <div class="page-image">
+                <img src="{% static 'images/main_picture.png' %}" alt="About image">
+            </div>
+        </section>
     </div>
 </body>
 </html>
