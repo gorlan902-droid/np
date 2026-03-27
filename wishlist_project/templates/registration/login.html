@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід - WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">
+                <a href="/">WishList</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/examples/">Examples</a>
+                <a href="/about/">About</a>
+                <a href="/register/" class="btn-nav">Get Started</a>
+            </nav>
+        </header>
+
+        <section class="form-page">
+            <div class="form-card">
+                <h2>Вхід</h2>
+
+                {% if form.errors %}
+                    <p class="error-text">Неправильний логін або пароль</p>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+                    {{ form.password }}
+
+                    <button type="submit" class="hero-btn full-btn">Увійти</button>
+                </form>
+
+                <p class="form-link">
+                    Немає акаунта? <a href="/register/">Зареєструватись</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
