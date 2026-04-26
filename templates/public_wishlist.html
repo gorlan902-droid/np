@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список бажань {{ owner.username }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <header class="navbar">
+        <div class="logo">
+            <a href="/">WishList</a>
+        </div>
+        <nav class="nav-links">
+            <a href="/examples/">Examples</a>
+            <a href="/about/">About</a>
+            {% if user.is_authenticated %}
+                <a href="/account/" class="btn-nav">My Account</a>
+            {% else %}
+                <a href="/register/" class="btn-nav">Get Started</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div style="margin-top: 40px;">
+        <h1 style="text-align: center; color: #d69aa7;">Список бажань користувача {{ owner.username }} 🎁</h1>
+        <p style="text-align: center; color: #555;">Ось що {{ owner.username }} хоче отримати в подарунок:</p>
+
+        <div style="margin-top: 40px;">
+            {% for wish in wishes %}
+                <div style="margin-top: 20px; padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <h3 style="margin-top: 0;">{{ wish.title }}</h3>
+                    <p style="color: #555;">{{ wish.description }}</p>
+
+
+                </div>
+            {% empty %}
+                <p style="text-align: center; color: #777; margin-top: 30px;">Цей список поки що порожній.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ action }} бажання - WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <header class="navbar">
+        <div class="logo">
+            <a href="/">WishList</a>
+        </div>
+        <nav class="nav-links">
+            <a href="/examples/">Examples</a>
+            <a href="/about/">About</a>
+            {% if user.is_authenticated %}
+                <a href="/account/" class="btn-nav">My Account</a>
+            {% else %}
+                <a href="/register/" class="btn-nav">Get Started</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="form-page" style="min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+        <div class="form-container" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 500px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">{{ action }} бажання</h2>
+            
+            <form method="post">
+                {% csrf_token %}
+                
+                <style>
+                    /* Стилізація полів форми Django */
+                    form p { margin-bottom: 20px; }
+                    form input, form textarea {
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        box-sizing: border-box;
+                    }
+                    form textarea { height: 100px; resize: vertical; }
+                    label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+                </style>
+
+                {{ form.as_p }}
+                
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="hero-btn" style="width: 100%; background: #d69aa7; color: white; border: none; cursor: pointer;">
+                        {{ action }}
+                    </button>
+                    <a href="{% url 'account' %}" style="display: block; text-align: center; margin-top: 15px; color: #888; text-decoration: none;">Скасувати</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
