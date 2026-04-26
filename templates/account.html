@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акаунт - WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 25px 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .account-user-info h2 { margin-top: 0; margin-bottom: 10px; font-size: 28px; }
+        .account-user-info p { margin: 0; font-size: 18px; color: #555; }
+        .logout-form { margin: 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="navbar">
+        <div class="logo">
+            <a href="/">WishList</a>
+        </div>
+        <nav class="nav-links">
+            <a href="/examples/">Examples</a>
+            <a href="/about/">About</a>
+            {% if user.is_authenticated %}
+                <a href="/account/" class="btn-nav">My Account</a>
+            {% else %}
+                <a href="/register/" class="btn-nav">Get Started</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="account-header">
+        <div class="account-user-info">
+            <h2>Мій акаунт</h2>
+            <p>Ви увійшли як: <strong style="color: #d69aa7;">{{ request.user.username }}</strong></p>
+        </div>
+        <form method="post" action="/logout/" class="logout-form">
+            {% csrf_token %}
+            <button type="submit" class="hero-btn" style="border-color: #aaa; color: #666; padding: 10px 20px;">Вийти з акаунта</button>
+        </form>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <h2 style="margin: 0; font-size: 28px;">Мій список бажань</h2>
+    </div>
+
+    <div>
+        {% for wish in wishes %}
+            <div style="margin-bottom: 20px; padding: 25px; background: #fff; border: 1px solid #eaeaea; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+                <h3 style="margin-top: 0; font-size: 22px;">{{ wish.title }}</h3>
+                <p style="color: #555; font-size: 16px; line-height: 1.5;">{{ wish.description }}</p>
+
+                {% if wish.link %}
+                    <p><a href="{{ wish.link }}" target="_blank" style="color: #d69aa7; font-weight: bold; text-decoration: none;">🔗 Перейти до товару</a></p>
+                {% endif %}
+
+                <div style="margin-top: 20px; display: flex; gap: 12px;">
+                    <a href="/edit-wish/{{ wish.id }}/" class="hero-btn" style="padding: 8px 18px; font-size: 15px;">✏️ Редагувати</a>
+                    <a href="/delete-wish/{{ wish.id }}/" class="hero-btn" style="padding: 8px 18px; font-size: 15px; border-color: #d9534f; color: #d9534f;" onclick="return confirm('Точно видалити це бажання?');">❌ Видалити</a>
+                </div>
+            </div>
+        {% empty %}
+            <div style="text-align: center; padding: 50px 0; background: #fff; border-radius: 16px; border: 1px dashed #ccc;">
+                <p style="color: #777; font-size: 18px; margin-bottom: 20px;">У тебе ще немає бажань 😢 Час щось додати!</p>
+                <a href="/add-wish/" class="hero-btn">Додати перше бажання</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div style="background: #fff; padding: 30px; border-radius: 16px; margin: 40px 0 80px 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid #f9f0f2;">
+        <h3 style="margin-top: 0; font-size: 24px;">🎁 Твоє публічне посилання:</h3>
+        <p style="color: #666; margin-bottom: 15px; font-size: 16px;">Поділися цим посиланням з друзями, щоб вони побачили твій список:</p>
+        <a href="/wishlist/{{ wishlist.share_link }}/" target="_blank" style="color: #d69aa7; font-weight: bold; font-size: 18px; text-decoration: underline; word-break: break-all;">
+            http://127.0.0.1:8000/wishlist/{{ wishlist.share_link }}/
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

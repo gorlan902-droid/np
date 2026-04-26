@@ -75,13 +75,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'wishlist',
-       'USER': 'postgress',
-       'PASSWORD': '2356',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
-   }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -126,5 +122,8 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = 'account'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home'  
 LOGIN_URL = 'login'
+
+# Ensure users are not automatically logged in when reopening the browser
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

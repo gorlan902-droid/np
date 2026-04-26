@@ -16,7 +16,11 @@
             <nav class="nav-links">
                 <a href="/examples/">Examples</a>
                 <a href="/about/">About</a>
-                <a href="/register/" class="btn-nav">Get Started</a>
+                {% if user.is_authenticated %}
+                    <a href="/account/" class="btn-nav">My Account</a>
+                {% else %}
+                    <a href="/register/" class="btn-nav">Get Started</a>
+                {% endif %}
             </nav>
         </header>
 

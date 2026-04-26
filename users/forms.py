@@ -1,7 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import Wish
 
+class WishForm(forms.ModelForm):
+    class Meta:
+        model = Wish
+        fields = ['title', 'description', 'link']
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(

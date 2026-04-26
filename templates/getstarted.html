@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - WishList</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">
+                <a href="/">WishList</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/examples/">Examples</a>
+                <a href="/about/">About</a>
+                {% if user.is_authenticated %}
+                    <a href="/account/" class="btn-nav">My Account</a>
+                {% else %}
+                    <a href="/register/" class="btn-nav">Get Started</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <section class="form-page">
+            <div class="form-card">
+                <h2>Почнімо</h2>
+                <p class="center-text">
+                    Щоб створити свій перший вішліст, спочатку зареєструй акаунт.
+                </p>
+                <a href="/register/" class="hero-btn full-btn">Перейти до реєстрації</a>
+                <p class="form-link">
+                    Вже маєш акаунт? <a href="/login/">Увійти</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
